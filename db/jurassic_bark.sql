@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS owners;
 
   CREATE TABLE owners (
-  id SERIAL PRIMARY KEY,
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),
-  age INT,
-  address TEXT,
-  children BOOLEAN
+    id SERIAL PRIMARY KEY,
+    first_name VARCHAR(255),
+    surname VARCHAR(255),
+    age INT,
+    town VARCHAR(255),
+    bairns BOOLEAN
 );
 
   CREATE TABLE pets (
@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS owners;
     pet_type VARCHAR(255),
     breed VARCHAR(255),
     adm_date DATE,
-    vaccinated BOOLEAN,
+    bairn_friendly BOOLEAN,
     adopted BOOLEAN,
     owner_id INT REFERENCES owners(id)
   );

@@ -6,31 +6,58 @@ class Owner
   attr_accessor(:first_name, :surname, :address, :town, :children)
 
   def initialize( details )
-    @id = details["id"].to_i() if details["id"]
+    @id = details['id'].to_i() if details['id']
     @first_name = details["first_name"]
     @surname = details["surname"]
-    @address = details["address"]
     @town = details["town"]
-    @children = details["children"]
+    @bairns = details["bairns"]
   end
 
   def save
-    sql = 'INSERT INTO owners WHERE
-    (first_name, surname, address, town, children)
+    sql = 'INSERT INTO owners
+    (first_name, surname, address, town, bairns)
     VALUES
     ($1, $2, $3, $4, $5)
     RETURNING id;'
-    values = [@first_name, @surname, @address, @town, @children]
-    owner = SqlRunner.run(sql, values).first
-    @id = owner["id"].to_i
+    values = [@first_name, @surname, @address, @town, @bairns]
+    owner = SqlRunner.run(sql, values)
+    owner_id = owner.first
+    @id = owner_id["id"].to_i
+  end
+
+  def self.find_by_id(id)
+    sql = 'SELECT * FROM owners WHERE id = $1;'
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all
+    sql = 'SELECT * FROM owners;'
+    values =[]
+    SqlRunner.run(sql, values)
   end
 
   def self.delete_all()
-    sql = 'DELETE FROM students;'
+    sql = 'DELETE FROM owners;'
     values = []
     SqlRunner.run(sql, values)
   end
 
+  def self.delete_by_id(id)
+    sql = 'DELETE FROM owners WHERE id = $1;'
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def update
+    sql = 'UPDATE owners SET
+      (first_name, surname, town, bairns)
+        =
+      ($1, $2, $3, $4)
+      where id = $5;'
+    values = [@first_name, @surname, @town, @bairns, @id]
+    SqlRunner.run(sql, values)
+  end
 
 
 
