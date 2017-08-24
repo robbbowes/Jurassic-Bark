@@ -6,7 +6,8 @@ DROP TABLE IF EXISTS owners;
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   age INT,
-  address TEXT
+  address TEXT,
+  children BOOLEAN
 );
 
   CREATE TABLE pets (
@@ -14,6 +15,8 @@ DROP TABLE IF EXISTS owners;
     pet_name VARCHAR(255),
     pet_type VARCHAR(255),
     breed VARCHAR(255),
-    addm_date DATE,
+    adm_date DATE,
+    vaccinated BOOLEAN,
+    adopted BOOLEAN,
     owner_id INT REFERENCES owners(id)
   );
