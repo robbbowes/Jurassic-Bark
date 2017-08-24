@@ -12,11 +12,10 @@ DROP TABLE IF EXISTS owners;
 
   CREATE TABLE pets (
     id SERIAL PRIMARY KEY,
-    pet_name VARCHAR(255),
-    pet_type VARCHAR(255),
+    name VARCHAR(255),
+    adoptable BOOLEAN,
     breed VARCHAR(255),
-    adm_date DATE,
+    admission_date DATE,
     bairn_friendly BOOLEAN,
-    adopted BOOLEAN,
     owner_id INT REFERENCES owners(id)
   );

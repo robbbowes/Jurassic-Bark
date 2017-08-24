@@ -5,8 +5,16 @@ require('pry-byebug')
   # Owner.delete_all
 
   owner1 = Owner.new({ 'first_name' => "Simon", 'surname' => "Anger",
-    'address' => '1 Ham Street', 'town' => 'Embra', 'bairns' => false })
+    'town' => 'Embra', 'bairns' => false })
   owner1.save
+
+
+
+
+  pet1 = Pet.new({ 'name' => 'Douglas McKenzie', 'adoptable' => true, 'breed' => 'dog',
+    'admission_date' => '2017-05-25', 'bairn_friendly' => true, 'owner_id' => owner1.id })
+  pet1.save
+
 
   pry.binding
   nil
