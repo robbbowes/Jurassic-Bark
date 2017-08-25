@@ -14,6 +14,9 @@ require('pry-byebug')
   pet1 = Pet.new({ 'name' => 'Douglas McKenzie', 'adoptable' => true, 'breed' => 'dog',
     'admission_date' => '2017-05-25', 'bairn_friendly' => true, 'owner_id' => owner1.id })
   pet1.save
+  pet2 = Pet.new({ 'name' => 'Gertrude', 'adoptable' => false, 'breed' => 'cat',
+    'admission_date' => '2017-05-22', 'bairn_friendly' => true, 'owner_id' => 1 })
+  pet2.save
 
 
   pry.binding

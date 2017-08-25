@@ -1,0 +1,67 @@
+h1 {
+  font-family: Palatino, 'Palatino Linotype', serif;
+}
+
+body {
+
+color: darkgreen,
+position: relative;
+background-image: url("background.png");
+background-position: 50% 50%;
+background-repeat: no-repeat;
+}
+
+.background-icon {
+  padding: 250px 0;
+	margin: 30px;
+  font-family: 'Trebuchet MS',Helvetica, sans-serif;
+  /*background-image: url("background.png");*/
+  background-size: stretch;
+  color: #ffffff;
+}
+
+.background {
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+
+#footer {
+  font-family: Palatino, 'Palatino Linotype', serif;
+}
+
+/*.background {
+  background-color: beige;
+}*/
+
+.grid {
+  border: 1px solid darkblue
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.cell {
+  flex: 1;
+  border: 1px solid darkblue;
+  padding: 10px;
+}
+
+@media (min-width: 480px) {
+  .grid-row-sm {
+    flex-direction: row;
+  }
+}
+
+@media (min-width; 720px) {
+  .grid-row-md {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 960px) {
+  .grid-row-lg {
+    flex-direction: column;
+  }
+}

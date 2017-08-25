@@ -31,13 +31,16 @@ class Pet
   def self.find_by_id(id)
     sql = 'SELECT * FROM pets WHERE id = $1;'
     values = [id]
-    SqlRunner.run(sql, values)
+    result = SqlRunner.run(sql, values)
+    return Pet.new(result[0])
   end
 
   def self.all
     sql = 'SELECT * FROM pets;'
     values = []
-    SqlRunner.run(sql, values)
+    pets_hash = SqlRunner.run(sql, values)
+    pets = pets_hash.map { |pet| Pet.new(pet)}
+    return pets
   end
 
   def self.delete_all
@@ -61,6 +64,19 @@ class Pet
     values = [@name, @adoptable, @breed, @admission_date,
               @bairn_friendly, @owner_id, @id]
     SqlRunner.run(sql, values)
+  end
+
+  # def adopt( owner )
+  #   sql = 'UPDATE pets SET (owner_id) = ($1) WHERE id = $2'
+  #   values = [owner.owner_id]
+  #   if owner.bairns && @bairn_friendly
+  #     SqlRunner.run(sql, values)
+  #   else
+  #
+  # end
+
+  def adoptable
+    return true if @adoptable == true
   end
 
 end
