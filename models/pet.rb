@@ -7,7 +7,7 @@ class Pet
   attr_accessor(:name, :adoptable, :breed, :admission_date, :bairn_friendly)
 
   def initialize( details )
-    @id = details["id"].to_i
+    @id = details["id"].to_i if details['id']
     @name = details["name"]
     @adoptable = details["adoptable"]
     @breed = details["breed"]

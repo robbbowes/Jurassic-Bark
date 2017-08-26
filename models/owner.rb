@@ -73,4 +73,8 @@ class Owner
     return pet_data.map { |pet| Pet.new(pet)}
   end
 
+  def name
+    return "#{@first_name} #{@surname}"
+  end
+
 end

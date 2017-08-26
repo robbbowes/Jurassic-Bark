@@ -4,7 +4,7 @@ class Adoption
   attr_accessor(:owner_id, :pet_id)
 
   def initialize( details )
-    @id = details["id"].to_i
+    @id = details["id"].to_i if details['id']
     @owner_id = details["owner_id"].to_i
     @pet_id = details["pet_id"].to_i
   end
@@ -58,16 +58,25 @@ class Adoption
 
   def owner
     sql = 'SELECT * FROM owners WHERE id = $1;'
-    values = [@id]
+    values = [@owner_id]
     results = SqlRunner.run(sql, values)
-    return Owner.new(results.first)
+    result = Owner.new( results.first )
+    return result.first_name + " " + result.surname
   end
 
-  def pet
-    sql = 'SELECT * FROM owners WHERE id = $1;'
-    values = [@id]
-    results = SqlRunner.run(sql, values)
-    return Pet.new(results.first)
+  # def pet
+  #   sql = 'SELECT * FROM pets WHERE id = $1;'
+  #   values = [@id]
+  #   results = SqlRunner.run(sql, values).map{|hash| Pet.new(hash)}
+  #   return results.first
+  # end
+
+  def pet()
+    sql = "SELECT name FROM pets WHERE id = $1"
+    values = [@pet_id]
+    results = SqlRunner.run( sql, values )
+    result = Pet.new( results.first )
+    return result.name
   end
 
 end

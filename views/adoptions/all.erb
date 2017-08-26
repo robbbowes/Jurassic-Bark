@@ -1,0 +1,5 @@
+<h1>Here is a list of all our successful adoptions</h1>
+
+<% for adoption in @adoptions do %>
+<p><%= adoption.pet %> has found a lovely home with <%= adoption.owner %> !</p>
+<% end %>
