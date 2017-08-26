@@ -28,13 +28,16 @@ class Owner
   def self.find_by_id(id)
     sql = 'SELECT * FROM owners WHERE id = $1;'
     values = [id]
-    SqlRunner.run(sql, values)
+    owner = SqlRunner.run(sql, values)
+    return Owner.new(owner[0])
   end
 
   def self.all
     sql = 'SELECT * FROM owners;'
     values =[]
-    SqlRunner.run(sql, values)
+    owner_hash = SqlRunner.run(sql, values)
+    owner = owner_hash.map {|owner| Owner.new(owner) }
+    return owner
   end
 
   def self.delete_all()
@@ -58,8 +61,24 @@ class Owner
     values = [@first_name, @surname, @town, @bairns, @id]
     SqlRunner.run(sql, values)
   end
+  #
+  # def pets
+  #   sql = 'SELECT pets.* FROM pets INNER JOIN adoption
+  #     ON adoption.pet_id = pets.id WHERE owner_id = $1'
+  #   values = [@id]
+  #   results = SqlRunner.run(sql, values)
+  #   return results.map { |pet| Pet.new(pet) }
+  # end
 
-
-
+  def pets()
+    sql = "SELECT pets.*
+    FROM pets
+    INNER JOIN adoptions
+    ON adoptions.pet_id = pets.id
+    WHERE owner_id = $1"
+    values = [@id]
+    pet_data = SqlRunner.run(sql, values)
+    return pet_data.map { |pet| Pet.new(pet)}
+  end
 
 end

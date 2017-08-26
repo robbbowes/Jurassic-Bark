@@ -4,7 +4,7 @@ require_relative("./owner")
 class Pet
 
   attr_reader(:id)
-  attr_accessor(:name, :adoptable, :breed, :admission_date, :bairn_friendly, :owner_id)
+  attr_accessor(:name, :adoptable, :breed, :admission_date, :bairn_friendly)
 
   def initialize( details )
     @id = details["id"].to_i
@@ -13,16 +13,15 @@ class Pet
     @breed = details["breed"]
     @admission_date = details["admission_date"]
     @bairn_friendly = details["bairn_friendly"]
-    @owner_id = details["owner_id"].to_i
   end
 
   def save
     sql = 'INSERT INTO pets
-    (name, adoptable, breed, admission_date, bairn_friendly, owner_id)
+    (name, adoptable, breed, admission_date, bairn_friendly)
     VALUES
-    ($1, $2, $3, $4, $5, $6)
+    ($1, $2, $3, $4, $5)
     RETURNING id;'
-    values = [@name, @adoptable, @breed, @admission_date, @bairn_friendly, @owner_id]
+    values = [@name, @adoptable, @breed, @admission_date, @bairn_friendly]
     pet = SqlRunner.run(sql, values)
     pet_id = pet.first
     @id = pet_id["id"].to_i
@@ -39,7 +38,7 @@ class Pet
     sql = 'SELECT * FROM pets;'
     values = []
     pets_hash = SqlRunner.run(sql, values)
-    pets = pets_hash.map { |pet| Pet.new(pet)}
+    pets = pets_hash.map { |pet| Pet.new(pet) }
     return pets
   end
 
@@ -59,10 +58,10 @@ class Pet
     sql = 'UPDATE pets SET
       (name, adoptable, breed, admission_date, bairn_friendly, owner_id)
         =
-      ($1, $2, $3, $4, $5, $6)
-        WHERE id = $7'
+      ($1, $2, $3, $4, $5)
+        WHERE id = $6'
     values = [@name, @adoptable, @breed, @admission_date,
-              @bairn_friendly, @owner_id, @id]
+              @bairn_friendly, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -74,6 +73,8 @@ class Pet
   #   else
   #
   # end
+
+
 
   def adoptable
     return true if @adoptable == true
