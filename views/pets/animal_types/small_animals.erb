@@ -1,0 +1,13 @@
+<h1>Here is a list of all our small animals:</h1>
+
+<% for pet in @pets do %>
+<% small_animals_array = [] %>
+<% small_animals_array.push(pet) if pet.breed == "small_animal" %>
+<% for small_animal in small_animals_array do %>
+
+<p><%= small_animal.name %></p>
+<p><%= small_animal.admission_date %></p>
+<p><%= small_animal.id %></p>
+
+<% end %>
+<% end %>

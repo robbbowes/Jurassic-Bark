@@ -1,0 +1,13 @@
+<h1>Here is a list of all our cats:</h1>
+
+<% for pet in @pets do %>
+<% cats_array = [] %>
+<% cats_array.push(pet) if pet.breed == "cat" %>
+<% for cat in cats_array do %>
+
+<p><%= cat.name %></p>
+<p><%= cat.admission_date %></p>
+<p><%= cat.id %></p>
+
+<% end %>
+<% end %>

@@ -1,0 +1,13 @@
+<h1>Here is a list of all our exotic_animals:</h1>
+
+<% for pet in @pets do %>
+<% exotic_animals_array = [] %>
+<% exotic_animals_array.push(pet) if pet.breed == "exotic_animal" %>
+<% for exotic_animal in exotic_animals_array do %>
+
+<p><%= exotic_animal.name %></p>
+<p><%= exotic_animal.admission_date %></p>
+<p><%= exotic_animal.id %></p>
+
+<% end %>
+<% end %>
