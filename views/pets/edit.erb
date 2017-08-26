@@ -1,0 +1,37 @@
+<h2>Edit <%= @pet.name %> (<%= @pet.id %>)</h2>
+<form method="POST" action="/pets/<%= @pet.id %>">
+  <div class="form-wrapper">
+
+    <div class="form">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= @pet.name %>"/>
+    </div>
+
+    <div class="form">
+      <label for="breed">Type:</label>
+      <input type="text" name="breed" id="breed" value="<%= @pet.breed%>"/>
+    </div>
+
+    <div class="form">
+      <label for="admission_date">Admission date:</label>
+      <input type="date" name="admission_date" id="admission_date" value="<%= @pet.admission_date %>"/>
+    </div>
+
+    <div class="form">
+      <label for="bairn_friendly">Child friendly?:</label>
+      <input type="checkbox" name="bairn_friendly" id="bairn_friendly"
+  <%     binding.pry %>
+      value="<%= @pet.bairn_friendly %>"/>
+    </div>
+
+    <div class="form">
+      <label for="adoptable">Currently adoptable?:</label>
+      <input type="checkbox" name="adoptable" id="adoptable"/>
+    </div>
+
+    <div class="form">
+      <input type="submit" value="Edit pet"/>
+    </div>
+
+  </div>
+</form>

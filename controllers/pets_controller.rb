@@ -46,6 +46,11 @@ get '/pets/small_animals' do
   erb(:"pets/animal_types/small_animals")
 end
 
+get '/pets/:id/edit' do
+  @pet = Pet.find_by_id(params['id'])
+  erb(:"pets/edit")
+end
+
 get '/pets/:id' do
   @pet = Pet.find_by_id(params[:id])
   erb(:"pets/show")
@@ -56,12 +61,8 @@ post '/pets' do
   redirect '/pets'
 end
 
-get 'pets/:id/edit' do
-  @pet = Pet.find_by_id(params['id'])
-  erb(:"pets/edit")
-end
 
-post 'pets/:id' do
+post '/pets/:id' do
   pet = Pet.new(params)
   pet.update()
   redirect to "/pets/#{params['id']}"

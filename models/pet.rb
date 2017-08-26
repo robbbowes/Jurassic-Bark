@@ -56,7 +56,7 @@ class Pet
 
   def update
     sql = 'UPDATE pets SET
-      (name, adoptable, breed, admission_date, bairn_friendly, owner_id)
+      (name, adoptable, breed, admission_date, bairn_friendly)
         =
       ($1, $2, $3, $4, $5)
         WHERE id = $6'
