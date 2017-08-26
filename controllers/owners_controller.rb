@@ -19,7 +19,7 @@ end
 
 post '/owners' do
   Owner.new(params).save
-  redirect '/owners'
+  redirect to '/owners'
 end
 
 get '/owners/:id' do
@@ -35,11 +35,11 @@ end
 post 'owners/:id' do
   owner = Owner.new(params)
   owner.update()
-  redirect to "/owner/#{params['id']}"
+  redirect to "/owners/#{params['id']}"
 end
 
 post '/owners/:id/delete' do
-  owner = Ower.find_by_id(params['id'])
+  owner = Owner.find_by_id(params['id'])
   owner.delete
-  redirect to '/owers/all'
+  redirect to '/owners/all'
 end
