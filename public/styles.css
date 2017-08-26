@@ -56,12 +56,12 @@ background-repeat: no-repeat;
 
 @media (min-width; 720px) {
   .grid-row-md {
-    flex-direction: row;
+    flex-direction: column;
   }
 }
 
 @media (min-width: 960px) {
   .grid-row-lg {
-    flex-direction: column;
+    flex-direction: row;
   }
 }

@@ -1,0 +1,11 @@
+<h1>Here is a list of all our registered owners:</h1>
+
+<% for owner in @owners do %>
+
+<p><%= owner.first_name %> <%= owner.surname %></p>
+<p><%= owner.town %></p>
+<% if owner.bairns %>
+  <p>This person has young children.</p>
+<% end %>
+<hr/>
+<% end %>
