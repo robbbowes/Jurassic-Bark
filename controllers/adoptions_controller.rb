@@ -23,6 +23,8 @@ end
 
 get '/adoptions/new' do
   @adoptions = Adoption.all
+  @owners = Owner.all
+  @pets = Pet.all
   erb(:"adoptions/new")
 end
 
