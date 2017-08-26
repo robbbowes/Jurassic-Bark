@@ -65,19 +65,15 @@ class Pet
     SqlRunner.run(sql, values)
   end
 
-  # def adopt( owner )
-  #   sql = 'UPDATE pets SET (owner_id) = ($1) WHERE id = $2'
-  #   values = [owner.owner_id]
-  #   if owner.bairns && @bairn_friendly
-  #     SqlRunner.run(sql, values)
-  #   else
-  #
-  # end
-
-
-
-  def adoptable
-    return true if @adoptable == true
+  def owner()
+    sql = "SELECT owners.*
+    FROM owners
+    INNER JOIN adoptions
+    ON adoptions.owner_id = owners.id
+    WHERE pet_id = $1"
+    values = [@id]
+    owner_data = SqlRunner.run(sql, values)
+    return owner_data.map { |owner| Owner.new(owner)}
   end
 
 end

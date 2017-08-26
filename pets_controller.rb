@@ -26,10 +26,16 @@ get '/pets/new' do
   erb(:new)
 end
 
+get '/pets/dogs' do
+  @pets = Pet.all
+  erb(:dogs)
+end
+
 get '/pets/:id' do
   @pet = Pet.find_by_id(params[:id])
   erb(:show)
 end
+
 
 # CREATE ROUTE
 

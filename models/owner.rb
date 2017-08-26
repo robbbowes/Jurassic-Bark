@@ -61,14 +61,6 @@ class Owner
     values = [@first_name, @surname, @town, @bairns, @id]
     SqlRunner.run(sql, values)
   end
-  #
-  # def pets
-  #   sql = 'SELECT pets.* FROM pets INNER JOIN adoption
-  #     ON adoption.pet_id = pets.id WHERE owner_id = $1'
-  #   values = [@id]
-  #   results = SqlRunner.run(sql, values)
-  #   return results.map { |pet| Pet.new(pet) }
-  # end
 
   def pets()
     sql = "SELECT pets.*

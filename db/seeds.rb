@@ -3,7 +3,9 @@ require_relative("../models/pet.rb")
 require_relative("../models/adoption.rb")
 require('pry-byebug')
 
-  # Owner.delete_all
+  Adoption.delete_all
+  Owner.delete_all
+  Pet.delete_all
 
   owner1 = Owner.new({ 'first_name' => "Simon", 'surname' => "Anger",
     'town' => 'Embra', 'bairns' => false })
@@ -22,6 +24,3 @@ require('pry-byebug')
 
   pry.binding
   nil
-
-
- # 'owner_id' => owner1.id
