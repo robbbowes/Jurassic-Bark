@@ -7,9 +7,11 @@ class Pet
   attr_accessor(:name, :adoptable, :breed, :admission_date, :bairn_friendly)
 
   def initialize( details )
+    puts "new pet #{ details }"
     @id = details["id"].to_i if details['id']
     @name = details["name"]
-    @adoptable = (details["adoptable"] == 't')
+    @adoptable = details["adoptable"] == 't'
+
     @breed = details["breed"]
     @admission_date = details["admission_date"]
     @bairn_friendly = details["bairn_friendly"]

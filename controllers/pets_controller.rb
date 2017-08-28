@@ -11,6 +11,11 @@ get '/pets' do
   erb(:"pets/all")
 end
 
+get '/pets/adoptable' do
+  @pets = Pet.all
+  erb(:"pets/adoptable")
+end
+
 get '/pets/new' do
   @pets = Pet.all
   erb(:"pets/new")
@@ -63,6 +68,7 @@ end
 
 post '/pets/:id' do
   pet = Pet.new(params)
+  puts "Params #{params}"
   pet.update()
   redirect to "/pets/#{params['id']}"
 end

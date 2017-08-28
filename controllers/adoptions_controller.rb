@@ -20,7 +20,6 @@ get '/adoptions' do
   erb(:"adoptions/all")
 end
 
-
 get '/adoptions/new' do
   @adoptions = Adoption.all
   @owners = Owner.all
