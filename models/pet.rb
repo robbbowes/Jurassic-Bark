@@ -15,6 +15,18 @@ class Pet
     @bairn_friendly = details["bairn_friendly"]
   end
 
+  def adopted?()
+    adoptions.length > 0
+  end
+
+  def adoptions()
+    sql = 'SELECT * FROM adoptions WHERE pet_id = $1;'
+    values = [@id]
+    adoptions_hash = SqlRunner.run(sql, values)
+    adoptions = adoptions_hash.map { |adoption| Adoption.new(adoption) }
+    return adoptions
+  end
+
   def save
     sql = 'INSERT INTO pets
     (name, adoptable, breed, admission_date, bairn_friendly)
@@ -66,11 +78,11 @@ class Pet
   end
 
   def owner()
-    sql = "SELECT owners.*
+    sql = 'SELECT owners.*
     FROM owners
     INNER JOIN adoptions
     ON adoptions.owner_id = owners.id
-    WHERE pet_id = $1"
+    WHERE pet_id = $1;'
     values = [@id]
     owner_data = SqlRunner.run(sql, values)
     return owner_data.map { |owner| Owner.new(owner)}

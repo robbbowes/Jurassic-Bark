@@ -72,7 +72,7 @@ class Adoption
   # end
 
   def pet()
-    sql = "SELECT name FROM pets WHERE id = $1"
+    sql = 'SELECT name FROM pets WHERE id = $1;'
     values = [@pet_id]
     results = SqlRunner.run( sql, values )
     result = Pet.new( results.first )

@@ -13,9 +13,15 @@
   <div class="form-">
     <label for="pet_select">Pet:</label>
     <select name="pet_id" id="pet_select">
+
       <% for pet in @pets do %>
-        <option value=<%= pet.id %>><%= pet.name %> </option>
+        <% adoptable_pets = [] %>
+          <% adoptable_pets.push(pet) if pet.adopted? == false %>
+            <% for adoptable_pet in adoptable_pets do %>
+          <option value="<%= adoptable_pet.id %>"><%= adoptable_pet.name %> </option>
+        <% end %>
       <% end %>
+
     </select>
   </div>
 
@@ -27,3 +33,4 @@
 </form>
 
 <!-- Push none child friendly pets to one array and child friendly ones to another loop through/draw from them? -->
+<!-- unless pet.adoptable == false || (owner.bairns == true && pet.bairn_friendly == false)%> -->

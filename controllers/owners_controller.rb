@@ -17,9 +17,9 @@ get '/owners/new' do
   erb(:"owners/new")
 end
 
-post '/owners' do
-  Owner.new(params).save
-  redirect to '/owners'
+get '/owners/:id/edit' do
+  @owner = Owner.find_by_id(params[:id])
+  erb(:"owners/edit")
 end
 
 get '/owners/:id' do
@@ -27,12 +27,12 @@ get '/owners/:id' do
   erb(:"owners/show")
 end
 
-get 'owners/:id/edit' do
-  @owner = Owner.find_by_id(params['id'])
-  erb(:"owners/edit")
+post '/owners' do
+  Owner.new(params).save
+  redirect to '/owners'
 end
 
-post 'owners/:id' do
+post '/owners/:id' do
   owner = Owner.new(params)
   owner.update()
   redirect to "/owners/#{params['id']}"
@@ -41,5 +41,5 @@ end
 post '/owners/:id/delete' do
   owner = Owner.find_by_id(params['id'])
   owner.delete
-  redirect to '/owners/all'
+  redirect to '/owners'
 end

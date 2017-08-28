@@ -1,3 +1,7 @@
+* {
+  font-family: Helvetica, sans-serif;
+}
+
 h1 {
   font-family: Palatino, 'Palatino Linotype', serif;
 }
@@ -11,10 +15,11 @@ background-position: 50% 50%;
 background-repeat: no-repeat;
 }
 
+
+
 .background-icon {
   padding: 250px 0;
 	margin: 30px;
-  font-family: 'Trebuchet MS',Helvetica, sans-serif;
   /*background-image: url("background.png");*/
   background-size: stretch;
   color: #ffffff;
@@ -64,4 +69,25 @@ background-repeat: no-repeat;
   .grid-row-lg {
     flex-direction: row;
   }
+}
+.top-bar {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 100% auto;
+  margin: 0 10px, 0;
+  padding: 50px;
+  overflow: hidden;
+  border: none;
+  font: normal 24px "Palatino Linotype", Palatino, serif;
+  color: white;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  background: #3f8bbf;
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+}
+
+.footer_box {
+  font-size: 9px;
 }

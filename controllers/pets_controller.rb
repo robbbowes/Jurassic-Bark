@@ -61,7 +61,6 @@ post '/pets' do
   redirect '/pets'
 end
 
-
 post '/pets/:id' do
   pet = Pet.new(params)
   pet.update()
@@ -71,5 +70,5 @@ end
 post '/pets/:id/delete' do
   pet = Pet.find_by_id(params['id'])
   pet.delete
-  redirect to '/pets/all'
+  redirect to '/pets'
 end

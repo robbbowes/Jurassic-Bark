@@ -1,0 +1,28 @@
+<h1>Edit <% @owner.name %></h1>
+<form action="/owners/<%= @owner.id %>" method="POST">
+  <div class="form-wrapper">
+
+    <div class="form">
+      <label for="first_name">First name:</label>
+      <input type="text" name="first_name" id="first_name" value="<%= @owner.first_name %>"/>
+    </div>
+
+    <div class="form">
+      <label for="surname">Surname</label>
+      <input type="text" name="surname" id="surname" value="<%= @owner.surname %>"/>
+    </div>
+
+    <div class="form">
+      <label for="town">Town</label>
+      <input type="text" name="town" id="town" value="<%= @owner.town %>"/>
+    </div>
+
+    <div class="form">
+      <label for="bairns">Do you have young children?:</label>
+      <input type="checkbox" name="bairns" id="bairns"
+      value="<%= @owner.bairns %>"/>
+    </div>
+
+<input type="submit" value="Edit owner"/>
+
+</form>

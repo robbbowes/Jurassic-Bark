@@ -12,7 +12,7 @@ require('pry-byebug')
   owner1.save
 
   pet1 = Pet.new({ 'name' => 'Douglas McKenzie', 'adoptable' => true, 'breed' => 'dog',
-    'admission_date' => '2017-05-25', 'bairn_friendly' => true,})
+    'admission_date' => '2017-05-25', 'bairn_friendly' => true })
   pet1.save
   pet2 = Pet.new({ 'name' => 'Gertrude', 'adoptable' => false, 'breed' => 'cat',
     'admission_date' => '2017-05-22', 'bairn_friendly' => true })
@@ -21,6 +21,6 @@ require('pry-byebug')
   adoption1 = Adoption.new( { 'owner_id' => owner1.id, 'pet_id' => pet1.id })
   adoption1.save
 
-
-  pry.binding
-  nil
+  #
+  # pry.binding
+  # nil
