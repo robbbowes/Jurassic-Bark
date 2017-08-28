@@ -16,7 +16,7 @@
 
       <% for pet in @pets do %>
         <% adoptable_pets = [] %>
-          <% adoptable_pets.push(pet) if ( pet.adopted? == false ) %>
+          <% adoptable_pets.push(pet) if ( pet.adopted? == false && pet.adoptable == true) %>
             <% for adoptable_pet in adoptable_pets do %>
           <option value="<%= adoptable_pet.id %>"><%= adoptable_pet.name %> </option>
         <% end %>

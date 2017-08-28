@@ -9,7 +9,7 @@ class Pet
   def initialize( details )
     @id = details["id"].to_i if details['id']
     @name = details["name"]
-    @adoptable = details["adoptable"]
+    @adoptable = (details["adoptable"] == 't')
     @breed = details["breed"]
     @admission_date = details["admission_date"]
     @bairn_friendly = details["bairn_friendly"]
