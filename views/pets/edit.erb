@@ -9,8 +9,19 @@
 
     <div class="form">
       <label for="breed">Type:</label>
-      <select name="breed" id="@pet.breed">
-          <option value="<%= @pet.breed %>">
+      <select name="breed" id="breed">
+        <% breeds = [] %>
+        <% for pet in @pets do %>
+          <% breeds.push(pet.breed) %>
+        <% end %>
+
+        <% for breed in breeds.uniq do %>
+          <%if breed == @pet.breed  %>
+            <option value= <%= pet.breed %> selected> <%= breed %></option>
+          <% else %>
+            <option value= <%= pet.breed %>> <%= breed %></option>
+        <% end %>
+        <% end %>
       </select>
     </div>
 
