@@ -7,7 +7,7 @@ require_relative('../models/pet.rb')
 also_reload("..models/*")
 
 get '/pets' do
-  @pets = Pet.all
+  @pets = Pet.breed_sort
   erb(:"pets/all")
 end
 
@@ -36,9 +36,9 @@ get '/pets/dogs' do
   erb(:"pets/animal_types/dogs")
 end
 
-get '/pets/exotic_animals' do
+get '/pets/others' do
   @pets = Pet.all
-  erb(:"pets/animal_types/exotic_animals")
+  erb(:"pets/animal_types/others")
 end
 
 get '/pets/horses' do
@@ -46,9 +46,9 @@ get '/pets/horses' do
   erb(:"pets/animal_types/horses")
 end
 
-get '/pets/small_animals' do
+get '/pets/rodents' do
   @pets = Pet.all
-  erb(:"pets/animal_types/small_animals")
+  erb(:"pets/animal_types/rodents")
 end
 
 get '/pets/:id/edit' do

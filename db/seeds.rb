@@ -23,7 +23,7 @@ require('pry-byebug')
     'admission_date' => '2017-07-25', 'bairn_friendly' => true, 'picture' => '/prudence.jpg' })
   pet3.save
 
-  pet4 = Pet.new({ 'name' => 'Dean Anderson', 'adoptable' => true, 'breed' => 'exotic animal',
+  pet4 = Pet.new({ 'name' => 'Dean Anderson', 'adoptable' => true, 'breed' => 'other',
     'admission_date' => '2017-08-22', 'bairn_friendly' => true, 'picture' => '/dean_anderson.jpg' })
   pet4.save
 
@@ -31,11 +31,11 @@ require('pry-byebug')
     'admission_date' => '2017-08-12', 'bairn_friendly' => true, 'picture' => '/birdy_mcbirdface.jpg' })
   pet5.save
 
-  pet6 = Pet.new({ 'name' => 'Keith Lemondrops', 'adoptable' => false, 'breed' => 'exotic animal',
+  pet6 = Pet.new({ 'name' => 'Keith Lemondrops', 'adoptable' => false, 'breed' => 'other',
     'admission_date' => '2017-05-22', 'bairn_friendly' => true, 'picture' => '/keith_lemondrops.jpg' })
   pet6.save
 
-  pet7 = Pet.new({ 'name' => 'Jimmy the Brawler', 'adoptable' => true, 'breed' => 'small animal',
+  pet7 = Pet.new({ 'name' => 'Jimmy the Brawler', 'adoptable' => true, 'breed' => 'rodent',
     'admission_date' => '2017-05-25', 'bairn_friendly' => true, 'picture' => '/jimmy_the_brawler.jpg' })
   pet7.save
 
@@ -59,13 +59,13 @@ require('pry-byebug')
     'admission_date' => '2017-05-25', 'bairn_friendly' => true, 'picture' => '/andrew_mcdonald.jpg' })
   pet12.save
 
-  pet13 = Pet.new({ 'name' => 'Hank Marvin', 'adoptable' => false, 'breed' => 'small animal',
+  pet13 = Pet.new({ 'name' => 'Hank Marvin', 'adoptable' => false, 'breed' => 'rodent animal',
     'admission_date' => '2017-05-22', 'bairn_friendly' => true, 'picture' => '/hank_marvin.jpg' })
   pet13.save
 
   adoption1 = Adoption.new( { 'owner_id' => owner1.id, 'pet_id' => pet1.id })
   adoption1.save
 
-  #
+
   # pry.binding
   # nil

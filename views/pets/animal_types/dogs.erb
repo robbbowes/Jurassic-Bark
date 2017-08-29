@@ -7,8 +7,10 @@
 
 <p><%= dog.name %></p>
 <p><%= dog.admission_date %></p>
-<img src="<%= dog.picture %>"> 
-<p><%= dog.id %></p>
+<img src="<%= dog.picture %>">
+<p>Pet reference: <%= dog.id %></p>
+<p><a href="/pets/<%= dog.id %>/edit">Edit <%= dog.name %>?</a></p>
+
 <hr/>
 <% end %>
 <% end %>

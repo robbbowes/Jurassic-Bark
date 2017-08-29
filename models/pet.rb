@@ -7,7 +7,6 @@ class Pet
   attr_accessor(:name, :adoptable, :breed, :admission_date, :bairn_friendly, :picture)
 
   def initialize( details )
-    puts "new pet #{ details }"
     @id = details["id"].to_i if details['id']
     @name = details["name"]
     @adoptable = details["adoptable"] == 't' || details["adoptable"] == true
@@ -88,6 +87,10 @@ class Pet
     values = [@id]
     owner_data = SqlRunner.run(sql, values)
     return owner_data.map { |owner| Owner.new(owner)}
+  end
+
+  def self.breed_sort
+    return Pet.all.sort_by{|pet| pet.breed}
   end
 
 end

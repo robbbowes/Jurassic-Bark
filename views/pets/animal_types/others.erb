@@ -1,0 +1,26 @@
+<h1>Here is a list of all our other animals:</h1>
+  <% others_array = [] %>
+<% for pet in @pets do %>
+
+<% others_array.push(pet) if pet.breed == "other" %>
+<% end  %>
+<% puts others_array.length  %>
+<% if others_array.length == 0 %>
+<h2>WHERE ARE MY DRAGONS?!</h2>
+<br>
+<% end %>
+<% else for other in others_array do %>
+<% unless other.adopted? == true %>
+<p><%= other.name %></p>
+<p><%= other.admission_date %></p>
+<img src="<%= other.picture %>">
+<p>Pet reference: <%= other.id %></p>
+<p><a href="/pets/<%= other.id %>/edit">Edit <%= other.name %>?</a></p>
+
+
+
+
+<hr/>
+
+<% end %>
+<% end %>

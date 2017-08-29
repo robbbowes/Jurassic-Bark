@@ -11,16 +11,15 @@
       <label for="breed">Type:</label>
       <select name="breed" id="breed">
         <% breeds = [] %>
-        <% for pet in @pets do %>
-          <% breeds.push(pet.breed) %>
-        <% end %>
-
-        <% for breed in breeds.uniq do %>
-          <%if breed == @pet.breed  %>
-            <option value= <%= pet.breed %> selected> <%= breed %></option>
-          <% else %>
-            <option value= <%= pet.breed %>> <%= breed %></option>
-        <% end %>
+          <% for pet in @pets do %>
+            <% breeds.push(pet.breed) %>
+          <% end %>
+          <% for breed in breeds.uniq do %>
+            <%if breed == @pet.breed  %>
+            <option value= <%= breed %> selected> <%= breed %></option>
+            <% else %>
+            <option value= <%= breed %>> <%= breed %></option>
+          <% end %>
         <% end %>
       </select>
     </div>
@@ -38,6 +37,11 @@
     <div class="form">
       <label for="adoptable">Currently adoptable?:</label>
       <input type="checkbox" name="adoptable" id="adoptable"/>
+    </div>
+
+    <div class="form">
+      <label for="picture">Picture:</label>
+      <input type="text" name="picture" value="<%= @pet.picture %>">
     </div>
 
     <div class="form">
