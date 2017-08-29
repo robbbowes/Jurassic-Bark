@@ -10,7 +10,7 @@ class Pet
     puts "new pet #{ details }"
     @id = details["id"].to_i if details['id']
     @name = details["name"]
-    @adoptable = details["adoptable"] == 't'
+    @adoptable = details["adoptable"] == 't' || details["adoptable"] == true
 
     @breed = details["breed"]
     @admission_date = details["admission_date"]

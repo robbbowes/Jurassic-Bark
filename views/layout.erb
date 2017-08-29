@@ -7,23 +7,29 @@
       <link rel="stylesheet" type="text/css" href="/styles.css">
   </head>
   <body>
-<div class="top-bar"><a href="/"><img class="top-bar-logo" src="/background.png"></a><div class="title">Jurassic Bark Animal Shelter</div>
+<div class="top-bar">
+  <span style="float: left;"><a href="/"><img class="top-bar-logo" src="/jb.png"></a></span>
+  <span style="float: right"><div class="title">Jurassic Bark Animal Shelter</div></span>
+  <br>
+  <span stlye="float: right"><div class="telephone-number">Tel: 01234 567 890</div></span>
+  <br>
+  <img style="float: right" class="social-media" src="/social-icons-7.png">
 </div>
 <div class="pets-box">
+  <nav>
+    <div class="grid">
+      <div class ="grid-row grid-row-sm">
+        <div class="cell"><a href="/owners">All our members</a></div>
+        <div class="cell"><a href="/owners/new">Register</a></div>
+        <div class ="cell"><a href="/pets">All our pets</a></div>
+        <div class ="cell"><a href="/pets/new">Add a pet</a></div>
+        <div class ="cell"><a href="/adoptions">All adoptions</a></div>
+        <div class ="cell"><a href="/adoptions/new">Adopt a pet</a></div>
+      </div>
+    </div>
+  </nav>
   <%= yield %>
 </div>
-    <nav>
-      <div class="grid">
-        <div class ="grid-row grid-row-sm">
-          <div class="cell"><a href="/owners">All our members</a></div>
-          <div class="cell"><a href="/owners/new">Register</a></div>
-          <div class ="cell"><a href="/pets">All our pets</a></div>
-          <div class ="cell"><a href="/pets/new">Add a pet</a></div>
-          <div class ="cell"><a href="/adoptions">All adoptions</a></div>
-          <div class ="cell"><a href="/adoptions/new">Adopt a pet</a></div>
-        </div>
-      </div>
-    </nav>
   </body>
   <br>
   <footer>

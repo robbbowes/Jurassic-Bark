@@ -1,13 +1,20 @@
-<h1>Here is a list of all our exotic_animals:</h1>
+<h1>Here is a list of all our exotic animals:</h1>
 
 <% for pet in @pets do %>
 <% exotic_animals_array = [] %>
-<% exotic_animals_array.push(pet) if pet.breed == "exotic_animal" %>
+<% exotic_animals_array.push(pet) if pet.breed == "exotic animal" %>
 <% for exotic_animal in exotic_animals_array do %>
-
+<% unless exotic_animal.adopted? == true %>
 <p><%= exotic_animal.name %></p>
 <p><%= exotic_animal.admission_date %></p>
 <p><%= exotic_animal.id %></p>
 
+<% if exotic_animals_array.length == 0 %>
+<h2>WHERE ARE MY DRAGONS?!</h2>
+<br>
+<% end %>
+
+<hr/>
+<% end %>
 <% end %>
 <% end %>

@@ -2,12 +2,12 @@
 
 <% for pet in @pets do %>
 <% small_animals_array = [] %>
-<% small_animals_array.push(pet) if pet.breed == "small_animal" %>
+<% small_animals_array.push(pet) if pet.breed == "small animal" %>
 <% for small_animal in small_animals_array do %>
 
 <p><%= small_animal.name %></p>
 <p><%= small_animal.admission_date %></p>
 <p><%= small_animal.id %></p>
-
+<hr/>
 <% end %>
 <% end %>

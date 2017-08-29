@@ -1,14 +1,21 @@
-<h1>Here is a list of all our pets:</h1>
-
+<h1>Here is a list of all our adoptable pets:</h1>
 <% for pet in @pets do %>
-
+<% unless pet.adopted?  %>
 <p>Name: <%= pet.name %></p>
-<p>Date admitted: <%= pet.admission_date %></p>
+<p>Animal type: <%= pet.breed.capitalize %></p>
+<p><%= pet.name %> has been with us since: <%= pet.admission_date %></p>
+<% if pet.bairn_friendly %>
+<p> They're also great with kids!</p>
+<% end %>
+<% if pet.adoptable %>
+<p><%= pet.name %> is currently up for adoption!
+<form action="/adoptions/new" method="post">
+  <input type="submit" value="Adopt me!">
+</form>
+<% end %>
+
 <p>Pet reference: <%= pet.id %></p>
-<p>Is this pet child friendly? <%= pet.bairn_friendly %></p>
-<p>Adoptable? <%= pet.adoptable %></p>
-
 <p><a href="/pets/<%= pet.id %>/edit">Edit pet</a></p>
-
-
+<hr/>
+<% end %>
 <% end %>

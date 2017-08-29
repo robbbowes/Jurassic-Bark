@@ -1,7 +1,8 @@
 <form action="/adoptions" method="POST">
 <div class="form-wrapper">
 
-  <div class="form-">
+  <div class="form">
+    <p>To adopt a pet please <a href="/owners/new">register</a> first.</p>
     <label for="owner_select">Owner:</label>
     <select name="owner_id" id="owner_select">
       <% for owner in @owners do %>
@@ -10,12 +11,11 @@
     </select>
   </div>
 
-  <div class="form-">
+  <div class="form">
     <label for="pet_select">Pet:</label>
     <select name="pet_id" id="pet_select">
 
       <% for pet in @pets do %>
-        <% puts "Adoptable #{pet.adoptable}" %>
         <% if pet.adopted? == false  && pet.adoptable == true%>
           <option value="<%= pet.id %>"><%= pet.name %> </option>
         <% end %>
