@@ -7,6 +7,8 @@ DROP TABLE IF EXISTS adoptions;
     first_name VARCHAR(255),
     surname VARCHAR(255),
     age INT,
+    address1 VARCHAR(255),
+    address2 VARCHAR(255),
     town VARCHAR(255),
     bairns BOOLEAN
 );
@@ -17,7 +19,8 @@ DROP TABLE IF EXISTS adoptions;
     adoptable BOOLEAN,
     breed VARCHAR(255),
     admission_date DATE,
-    bairn_friendly BOOLEAN
+    bairn_friendly BOOLEAN,
+    picture VARCHAR(255)
   );
 
   CREATE TABLE adoptions (

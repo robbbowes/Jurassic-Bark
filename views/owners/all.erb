@@ -2,11 +2,17 @@
 
 <% for owner in @owners do %>
 
-<p><%= owner.first_name %> <%= owner.surname %></p>
-<p><%= owner.town %></p>
+<p>Name: <%= owner.first_name %> <%= owner.surname %></p>
+<p>Address: <%= owner.address1 %></p>
+<% unless owner.address2 == '' %>
+<p><%= owner.address2 %></p>
+<% end %>
+<p>Town: <%= owner.town %></p>
+
 <% if owner.bairns %>
   <p>This person has young children.</p>
 <% end %>
-<p><a href="/owners/<%= owner.id %>/edit">Edit owner</a></p>
+
+<p><a href="/owners/<%= owner.id %>/edit">Edit owner?</a></p>
 <hr/>
 <% end %>

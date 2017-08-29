@@ -79,4 +79,12 @@ class Adoption
     return result.name
   end
 
+  def pet_picture
+    sql = 'SELECT picture FROM pets where id = $1;'
+    values = [@pet_id]
+    results = SqlRunner.run( sql, values )
+    result = Pet.new( results.first )
+    return result.picture
+  end
+
 end

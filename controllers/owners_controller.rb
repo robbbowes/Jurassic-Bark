@@ -9,6 +9,7 @@ also_reload("..models/*")
 
 get '/owners' do
   @owners = Owner.all
+  @adoptions = Adoption.all
   erb(:"owners/all")
 end
 
@@ -35,7 +36,7 @@ end
 post '/owners/:id' do
   owner = Owner.new(params)
   owner.update()
-  redirect to "/owners/#{params['id']}"
+  redirect to "/owners"
 end
 
 post '/owners/:id/delete' do

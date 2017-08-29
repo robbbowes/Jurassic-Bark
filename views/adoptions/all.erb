@@ -2,4 +2,5 @@
 
 <% for adoption in @adoptions do %>
 <p><%= adoption.pet %> has found a lovely home with <%= adoption.owner %> !</p>
+<img src="<%= adoption.pet_picture %>">
 <% end %>

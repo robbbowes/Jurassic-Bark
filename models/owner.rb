@@ -3,23 +3,25 @@ require_relative("../db/sql_runner")
 class Owner
 
   attr_reader(:id)
-  attr_accessor(:first_name, :surname, :town, :bairns)
+  attr_accessor(:first_name, :surname, :address1, :address2, :town, :bairns)
 
   def initialize( details )
     @id = details['id'].to_i() if details['id']
     @first_name = details["first_name"]
     @surname = details["surname"]
+    @address1 = details["address1"]
+    @address2 = details["address2"]
     @town = details["town"]
     @bairns = details["bairns"]
   end
 
   def save
     sql = 'INSERT INTO owners
-    (first_name, surname, town, bairns)
+    (first_name, surname, address1, address2, town, bairns)
     VALUES
-    ($1, $2, $3, $4)
+    ($1, $2, $3, $4, $5, $6)
     RETURNING id;'
-    values = [@first_name, @surname, @town, @bairns]
+    values = [@first_name, @surname, @address1, @address2, @town, @bairns]
     owner = SqlRunner.run(sql, values)
     owner_id = owner.first
     @id = owner_id["id"].to_i
@@ -54,11 +56,11 @@ class Owner
 
   def update
     sql = 'UPDATE owners SET
-      (first_name, surname, town, bairns)
+      (first_name, surname, address1, address2, town, bairns)
         =
-      ($1, $2, $3, $4)
-      where id = $5;'
-    values = [@first_name, @surname, @town, @bairns, @id]
+      ($1, $2, $3, $4, $5, $6)
+      where id = $7;'
+    values = [@first_name, @surname, @address1, @address2, @town, @bairns, @id]
     SqlRunner.run(sql, values)
   end
 

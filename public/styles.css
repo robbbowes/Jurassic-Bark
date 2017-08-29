@@ -46,7 +46,6 @@ a:visited {
   margin: 0 10px, 0;
   padding: 15px;
   overflow: hidden;
-  border: none;
   font: normal 24px "Palatino Linotype", Palatino, serif;
   color: white;
   -o-text-overflow: ellipsis;
@@ -76,9 +75,7 @@ a:visited {
   background-color: beige;
 }
 
-.title {
-  float: center;
-}
+
 
 .telephone-number {
   float: right;
@@ -96,7 +93,4 @@ a:visited {
 .category-link {
   display: inline-block;
   margin-bottom: 10px;
-}
-
-.category-name {
 }

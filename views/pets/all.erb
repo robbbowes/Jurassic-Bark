@@ -7,9 +7,10 @@
 <% if pet.bairn_friendly %>
 <p> They're also great with kids!</p>
 <% end %>
+<img src="<%= pet.picture %>"> 
 <% if pet.adoptable %>
 <p><%= pet.name %> is currently up for adoption!
-<form action="/adoptions/new" method="post">
+<form action="/adoptions/new">
   <input type="submit" value="Adopt me!">
 </form>
 <% end %>
