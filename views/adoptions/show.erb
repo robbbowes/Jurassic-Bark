@@ -7,12 +7,6 @@
       <p>I'm not currently up for adoption</p>
     <% end %>
 
-    <% if @pet.bairn_friendly == true %>
-      <p>I'm great with kids too! <%= @pet.bairn_friendly %></p>
-    <% else %>
-      <p>Please note that I'm not too good around small children.</p>
-    <% end %>
-
     <% if @pet.adopted? != true %>
       <p>I've been looking for an owner since: <%= @pet.admission_date %></p>
     <% else %>

@@ -10,10 +10,6 @@
     <p><%= horse.admission_date %></p>
     <img src="<%= horse.picture %>">
     <p>Pet reference:<%= horse.id %></p>
-    <% if horse.bairn_friendly == true %>
-      <p>Great with kids!</p>
-    <% end %>
-
 
     <% if horse.adoptable == true %>
       <p><%= horse.name %> is currently up for adoption!

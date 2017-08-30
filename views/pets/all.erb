@@ -5,9 +5,7 @@
 <p>Name: <%= pet.name %></p>
 <p>Animal type: <%= pet.breed %></p>
 <p><%= pet.name %> has been with us since: <%= pet.admission_date %></p>
-<% if pet.bairn_friendly == true %>
-<p> They're also great with kids!</p>
-<% end %>
+
 <img src="<%= pet.picture %>">
 <% if pet.adoptable %>
 <p><%= pet.name %> is currently up for adoption!

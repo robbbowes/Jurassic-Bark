@@ -9,7 +9,6 @@ DROP TABLE IF EXISTS adoptions;
     address1 VARCHAR(255),
     address2 VARCHAR(255),
     town VARCHAR(255),
-    bairns BOOLEAN,
     owner_picture VARCHAR(255)
 );
 
@@ -19,7 +18,6 @@ DROP TABLE IF EXISTS adoptions;
     adoptable BOOLEAN,
     breed VARCHAR(255),
     admission_date DATE,
-    bairn_friendly BOOLEAN,
     picture VARCHAR(255)
   );
 
