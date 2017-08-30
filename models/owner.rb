@@ -3,7 +3,7 @@ require_relative("../db/sql_runner")
 class Owner
 
   attr_reader(:id)
-  attr_accessor(:first_name, :surname, :address1, :address2, :town, :bairns)
+  attr_accessor(:first_name, :surname, :address1, :address2, :town, :bairns, :owner_picture)
 
   def initialize( details )
     @id = details['id'].to_i() if details['id']
@@ -12,16 +12,17 @@ class Owner
     @address1 = details["address1"]
     @address2 = details["address2"]
     @town = details["town"]
-    @bairns = details["bairns"]
+    @bairns = details["bairns"] == 't' || details["bairns"] == true
+    @owner_picture = details["owner_picture"]
   end
 
   def save
     sql = 'INSERT INTO owners
-    (first_name, surname, address1, address2, town, bairns)
+    (first_name, surname, address1, address2, town, bairns, owner_picture)
     VALUES
-    ($1, $2, $3, $4, $5, $6)
+    ($1, $2, $3, $4, $5, $6, $7)
     RETURNING id;'
-    values = [@first_name, @surname, @address1, @address2, @town, @bairns]
+    values = [@first_name, @surname, @address1, @address2, @town, @bairns, @owner_picture]
     owner = SqlRunner.run(sql, values)
     owner_id = owner.first
     @id = owner_id["id"].to_i
@@ -58,9 +59,9 @@ class Owner
     sql = 'UPDATE owners SET
       (first_name, surname, address1, address2, town, bairns)
         =
-      ($1, $2, $3, $4, $5, $6)
-      where id = $7;'
-    values = [@first_name, @surname, @address1, @address2, @town, @bairns, @id]
+      ($1, $2, $3, $4, $5, $6, $7)
+      where id = $8;'
+    values = [@first_name, @surname, @address1, @address2, @town, @bairns, @owner_picture, @id]
     SqlRunner.run(sql, values)
   end
 

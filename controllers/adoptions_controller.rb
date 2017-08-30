@@ -42,14 +42,13 @@ get '/adoptions/:id' do
   erb(:"adoptions/show")
 end
 
+post '/adoptions/:id/delete' do
+  Adoption.delete_by_id(params[:id])
+  redirect to '/adoptions'
+end
+
 post '/adoptions/:id' do
   adoption = Adoption.new(params)
   adoption.update
-  redirect to "/adoptions/#{params['id']}"
-end
-
-post '/adoptions/:id/delete' do
-  adoption = Adoption.find_by_id(params[:id])
-  adoption.delete
-  redirect to '/adoptions/all'
+  redirect to "/adoptions"
 end

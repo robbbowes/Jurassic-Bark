@@ -3,6 +3,8 @@
 <% for owner in @owners do %>
 
 <p>Name: <%= owner.first_name %> <%= owner.surname %></p>
+<img class="owner_picture" src="<%= owner.owner_picture %>">
+
 <p>Address: <%= owner.address1 %></p>
 <% unless owner.address2 == '' %>
 <p><%= owner.address2 %></p>

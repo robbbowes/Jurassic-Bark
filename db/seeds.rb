@@ -8,7 +8,7 @@ require('pry-byebug')
   Pet.delete_all
 
   owner1 = Owner.new({ 'first_name' => "Simon", 'surname' => "Anger", 'address1' => '1 Streety Road',
-    'address2' => 'Leith', 'town' => 'Embra', 'bairns' => true})
+    'address2' => 'Leith', 'town' => 'Embra', 'bairns' => true, 'owner_picture' => 'simon_anger.jpg'})
   owner1.save
 
   pet1 = Pet.new({ 'name' => 'Douglas McKenzie', 'adoptable' => true, 'breed' => 'dog',

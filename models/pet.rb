@@ -90,7 +90,7 @@ class Pet
   end
 
   def self.breed_sort
-    return Pet.all.sort_by{|pet| pet.breed}
+    return Pet.all.sort_by{ |pet| pet.breed }
   end
 
 end

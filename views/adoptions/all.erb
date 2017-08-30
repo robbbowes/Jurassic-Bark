@@ -1,6 +1,9 @@
 <h1>Here is a list of all our successful adoptions</h1>
 
 <% for adoption in @adoptions do %>
-<p><%= adoption.pet %> has found a lovely home with <%= adoption.owner %> !</p>
+<p><%= adoption.pet %> has found a lovely home with <a href="/owners/<%= adoption.owner_id %>"><%= adoption.owner %></a>!</p>
 <img src="<%= adoption.pet_picture %>">
+
+<form action="/adoptions/<%= adoption.id %>/delete" method="POST">Delete adoption?<input type="submit" value="Delete"></form>
+<hr/>
 <% end %>

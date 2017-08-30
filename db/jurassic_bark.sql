@@ -6,11 +6,11 @@ DROP TABLE IF EXISTS adoptions;
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(255),
     surname VARCHAR(255),
-    age INT,
     address1 VARCHAR(255),
     address2 VARCHAR(255),
     town VARCHAR(255),
-    bairns BOOLEAN
+    bairns BOOLEAN,
+    owner_picture VARCHAR(255)
 );
 
   CREATE TABLE pets (
