@@ -72,7 +72,7 @@ post '/pets/:id' do
   breed = @pet.breed
   picture = @pet.picture
   @pet.update()
-  redirect to "/pets}"
+  redirect to "/pets#pet-#{@pet.id}"
 end
 
 post '/pets/:id/delete' do
