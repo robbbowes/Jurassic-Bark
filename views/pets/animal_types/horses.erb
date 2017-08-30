@@ -1,16 +1,25 @@
 <h1>Here is a list of all our horses:</h1>
 
 <% for pet in @pets do %>
-<% horses_array = [] %>
-<% horses_array.push(pet) if pet.breed == "horse" %>
-<% for horse in horses_array do %>
+  <% horses_array = [] %>
+  <% horses_array.push(pet) if pet.breed == "horse" && pet.adopted? != true %>
 
-<p><%= horse.name %></p>
-<p><%= horse.admission_date %></p>
-<img src="<%= horse.picture %>">
-<p>Pet reference: <%= horse.id %></p>
-<p><a href="/pets/<%= horse.id %>/edit">Edit <%= horse.name %>?</a></p>
+  <% for horse in horses_array do %>
 
-<hr/>
-<% end %>
+    <p><%= horse.name %></p>
+    <p><%= horse.admission_date %></p>
+    <img src="<%= horse.picture %>">
+    <p>Pet reference:<%= horse.id %></p>
+    <p>Great with kids!</p>
+
+
+    <% if horse.adoptable == true %>
+      <p><%= horse.name %> is currently up for adoption!
+        <form action="/adoptions/new">
+          <input type="submit" value="Adopt me!">
+        </form>
+    <% end %>
+    <p><a href="/pets/<%= horse.id %>/edit">Edit <%= horse.name %>?</a></p>
+    <hr/>
+  <% end %>
 <% end %>
