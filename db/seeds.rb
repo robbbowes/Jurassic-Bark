@@ -59,7 +59,7 @@ require('pry-byebug')
     'admission_date' => '2017-05-25', 'bairn_friendly' => true, 'picture' => '/andrew_mcdonald.jpg' })
   pet12.save
 
-  pet13 = Pet.new({ 'name' => 'Hank Marvin', 'adoptable' => false, 'breed' => 'rodent animal',
+  pet13 = Pet.new({ 'name' => 'Hank Marvin', 'adoptable' => false, 'breed' => 'rodent',
     'admission_date' => '2017-05-22', 'bairn_friendly' => true, 'picture' => '/hank_marvin.jpg' })
   pet13.save
 

@@ -46,9 +46,9 @@ get '/pets/horses' do
   erb(:"pets/animal_types/horses")
 end
 
-get '/pets/rodents' do
+get '/pets/rodent' do
   @pets = Pet.all
-  erb(:"pets/animal_types/rodents")
+  erb(:"pets/animal_types/rodent")
 end
 
 get '/pets/:id/edit' do
@@ -72,7 +72,7 @@ post '/pets/:id' do
   breed = @pet.breed
   picture = @pet.picture
   @pet.update()
-  redirect to "/pets/#{params['id']}"
+  redirect to "/pets}"
 end
 
 post '/pets/:id/delete' do

@@ -1,6 +1,6 @@
 <h1>Here is a list of all our adoptable pets:</h1>
 <% for pet in @pets do %>
-<% unless pet.adopted?  %>
+<% unless pet.adopted? == true %>
 <p>Name: <%= pet.name %></p>
 <p>Animal type: <%= pet.breed %></p>
 <p><%= pet.name %> has been with us since: <%= pet.admission_date %></p>
