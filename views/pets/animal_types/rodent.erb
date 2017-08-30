@@ -10,8 +10,9 @@
     <p><%= rodent.admission_date %></p>
     <img src="<%= rodent.picture %>">
     <p>Pet reference:<%= rodent.id %></p>
-    <p>Great with kids!</p>
-
+    <% if rodent.bairn_friendly == true %>
+      <p>Great with kids!</p>
+    <% end %>
 
     <% if rodent.adoptable == true %>
       <p><%= rodent.name %> is currently up for adoption!

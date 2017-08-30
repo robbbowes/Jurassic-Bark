@@ -57,7 +57,7 @@ class Owner
 
   def update
     sql = 'UPDATE owners SET
-      (first_name, surname, address1, address2, town, bairns)
+      (first_name, surname, address1, address2, town, bairns, owner_picture)
         =
       ($1, $2, $3, $4, $5, $6, $7)
       where id = $8;'

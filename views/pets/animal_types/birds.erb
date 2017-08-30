@@ -10,7 +10,9 @@
       <p><%= bird.admission_date %></p>
       <img src="<%= bird.picture %>">
       <p>Pet reference:<%= bird.id %></p>
-      <p>Great with kids!</p>
+      <% if bird.bairn_friendly == true %>
+        <p>Great with kids!</p>
+      <% end %>
 
 
       <% if bird.adoptable == true %>

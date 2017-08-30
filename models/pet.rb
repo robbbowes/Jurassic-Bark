@@ -12,7 +12,14 @@ class Pet
     @adoptable = details["adoptable"] == 't' || details["adoptable"] == true
     @breed = details["breed"]
     @admission_date = details["admission_date"]
-    @bairn_friendly = details["bairn_friendly"]
+    @bairn_friendly = details["bairn_friendly"] == 't' || details["bairn_friendly"] == true
+    #   @bairn_friendly = true
+    # elsif
+    #   @bairn_friendly = true
+    # else
+    #   @bairn_friendly = false
+    # end
+
     @picture = details["picture"]
   end
 
