@@ -29,6 +29,8 @@ Any other ideas you might come up with . MET (Great site name!  Pictures for ani
 
 WHAT I'D LIKE TO CHANGE/ADD:
 
-Generally happy with the result after 4 weeks worth of Ruby, Sinatra, SQL.
+Generally happy with the result especially as it was created in 5 days.
+
 UI/UX improvements - sort out the CSS as it's a little messy.
+
 Images need to be in the added and then assigned via filename, not ideal.
